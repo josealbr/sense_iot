@@ -13,7 +13,7 @@ def main_page():
 @app.route("/temp")
 def temp():
     temp = sense.get_temperature() - 6
-    return jsonify(temp)
+    return jsonify(temp=temp)
 
 
 if __name__ == '__main__':
