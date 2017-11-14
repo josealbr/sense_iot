@@ -4,10 +4,12 @@ from sense_hat import SenseHat
 app = Flask(__name__)
 
 sense = SenseHat()
+red = (255, 0, 0)
 
 @app.route("/")
 def main_page():
     sense.show_letter('H')
+    sense.clear(red)
     return 'HELLO RASPBERRY'
 
 
