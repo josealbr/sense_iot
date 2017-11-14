@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, jsonify
 from sense_hat import SenseHat
+import time
 
 app = Flask(__name__)
 
@@ -10,6 +11,7 @@ red = (255, 0, 0)
 def main_page():
     sense.show_letter('H')
     sense.clear(red)
+    time.sleep(0.3)
     sense.clear((0, 0, 0))
     return 'HELLO RASPBERRY'
 
