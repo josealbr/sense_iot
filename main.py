@@ -10,6 +10,7 @@ red = (255, 0, 0)
 def main_page():
     sense.show_letter('H')
     sense.clear(red)
+    sense.clear((0, 0, 0))
     return 'HELLO RASPBERRY'
 
 
