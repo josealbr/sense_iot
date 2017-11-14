@@ -9,10 +9,7 @@ red = (255, 0, 0)
 
 @app.route("/")
 def main_page():
-    sense.show_letter('H')
-    sense.clear(red)
-    time.sleep(0.1)
-    sense.clear((0, 0, 0))
+    sense.show_message("Hola")
     return 'HELLO RASPBERRY'
 
 
