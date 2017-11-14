@@ -10,10 +10,17 @@ def main_page():
     sense.show_letter('H')
     return 'HELLO RASPBERRY'
 
-@app.route("/temp")
+
+@app.route("/temperature")
 def temp():
     temp = sense.get_temperature() - 6
-    return jsonify(temp=temp)
+    return jsonify(temperature=temp)
+
+
+@app.route("/humidity")
+def humidity():
+    humidity = sense.get_humidity()
+    return jsonify(humidity=humidity)
 
 
 if __name__ == '__main__':
