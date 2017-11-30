@@ -1,11 +1,12 @@
 from flask import Flask, render_template, redirect, jsonify
 from sense_hat import SenseHat
-import time
+
 
 app = Flask(__name__)
 
 sense = SenseHat()
 red = (255, 0, 0)
+
 
 @app.route("/")
 def main_page():
@@ -15,14 +16,32 @@ def main_page():
 
 @app.route("/temperature")
 def temp():
-    temp = sense.get_temperature() - 6
+    t = sense.get_temperature() - 6
     return jsonify(temperature=temp)
 
 
 @app.route("/humidity")
 def humidity():
-    humidity = sense.get_humidity()
-    return jsonify(humidity=humidity)
+    h = sense.get_humidity()
+    return jsonify(humidity=h)
+
+
+@app.route("/pressure")
+def pressure():
+    p = sense.get_pressure()
+    return jsonify(pressure=p)
+
+
+@app.route("/others")
+def situation():
+    a = sense.get_accelerometer()
+    g = sense.get_gyroscope()
+    c = sense.get_compass()
+    o = sense.get_orientation_degrees()
+    return jsonify(acceleration=a,
+                   gyro=g,
+                   compass=c,
+                   orientation=o)
 
 
 if __name__ == '__main__':
